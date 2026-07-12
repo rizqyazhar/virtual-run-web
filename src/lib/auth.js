@@ -66,3 +66,14 @@ export async function getSession() {
 }
 
 export const SESSION_COOKIE_NAME = COOKIE_NAME;
+
+// ------------------------------------------------------------
+// Otorisasi untuk dipakai di dalam API route (bukan middleware)
+// Return session kalau role sesuai, atau null kalau tidak.
+// ------------------------------------------------------------
+export async function requireRole(allowedRoles) {
+  const session = await getSession();
+  if (!session) return null;
+  if (!allowedRoles.includes(session.role)) return null;
+  return session;
+}
