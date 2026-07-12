@@ -2,6 +2,8 @@ import { sql } from "@/lib/db";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const result = await sql`SELECT NOW()`;
-  return NextResponse.json({ success: true, time: result[0] });
+  const tables = await sql`
+  SELECT table_name FROM information_schema.tables
+  WHERE table_schema = 'public'`;
+  return NextResponse.json({ tables });
 }
