@@ -174,7 +174,7 @@ export default function AdminResultsPage() {
                         type='button'
                         onClick={() => handleVerify(result.id, "rejected")}
                         disabled={actingId === result.id}
-                        className='border border-gray-200 hover:bg-red-50 hover:text-red-600 hover:border-red-200 disabled:opacity-50 text-xs font-medium px-4 py-2 rounded-lg transition-colors'>
+                        className='border border-gray-200 hover:bg-red-50 hover:text-red-600 hover:border-red-200 disabled:opacity-50 text-xs text-gray-500 font-medium px-4 py-2 rounded-lg transition-colors'>
                         Reject
                       </button>
                     </div>

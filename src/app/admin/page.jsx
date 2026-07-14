@@ -240,7 +240,9 @@ export default function AdminDashboardPage() {
                     className='border border-gray-100 rounded-xl p-4'>
                     <div className='flex items-start justify-between mb-2'>
                       <div>
-                        <p className='font-medium text-sm'>{item.user_name}</p>
+                        <p className='font-medium text-sm text-gray-700'>
+                          {item.user_name}
+                        </p>
                         <p className='text-xs text-gray-500'>
                           {item.event_title}
                         </p>
@@ -296,7 +298,9 @@ export default function AdminDashboardPage() {
                     className='border border-gray-100 rounded-xl p-4'>
                     <div className='flex items-start justify-between mb-2'>
                       <div>
-                        <p className='font-medium text-sm'>{item.user_name}</p>
+                        <p className='font-medium text-sm text-gray-700'>
+                          {item.user_name}
+                        </p>
                         <p className='text-xs text-gray-500'>
                           {item.event_title}
                         </p>
@@ -320,7 +324,7 @@ export default function AdminDashboardPage() {
                       </button>
                       <a
                         href='/admin/results'
-                        className='border border-gray-200 hover:bg-gray-50 text-xs font-medium px-4 py-2 rounded-lg transition-colors'>
+                        className='border border-gray-200 hover:bg-gray-50 text-xs text-gray-500 font-medium px-4 py-2 rounded-lg transition-colors'>
                         Review
                       </a>
                     </div>
