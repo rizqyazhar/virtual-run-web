@@ -12,7 +12,8 @@ const NAV_LINKS = [
   { href: "/dashboard", label: "Dashboard" },
   { href: "/dashboard/events", label: "Browse Events" },
   { href: "/dashboard/registrations", label: "My Registrations" },
-  { href: "/dashboard/registrations", label: "Upload Payment" },
+  { href: "/dashboard/leaderboard", label: "Leaderboard" },
+  { href: "/dashboard/certificates", label: "Certificates" },
 ];
 
 const QUICK_ACTIONS = [
