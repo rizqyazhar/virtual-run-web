@@ -3,6 +3,7 @@ import { put } from "@vercel/blob";
 import { sql } from "@/lib/db";
 import { requireRole } from "@/lib/auth";
 import { generateCertificatePdf } from "@/lib/certificate";
+import { formatInterval } from "@/lib/format";
 
 // POST /api/certificates — admin generate & aktifkan sertifikat — FR-A7
 // Body: { "running_result_id": number }
@@ -67,7 +68,7 @@ export async function POST(request) {
       participantName: data.participant_name,
       eventTitle: data.event_title,
       distance: data.distance,
-      finishTime: data.finish_time,
+      finishTime: formatInterval(data.finish_time),
       rank,
     });
 
@@ -105,13 +106,26 @@ export async function POST(request) {
 
 // GET /api/certificates — peserta lihat daftar sertifikat miliknya yang sudah aktif — FR-P8
 export async function GET() {
-  const session = await requireRole(["participant"]);
+  const session = await requireRole(["admin", "participant"]);
   if (!session) {
     return NextResponse.json({ error: "Tidak diizinkan" }, { status: 403 });
   }
 
   try {
-    const certificates = await sql`
+    const certificates =
+      session.role === "admin"
+        ? await sql`
+            SELECT rr.id AS running_result_id, rr.certificate_url, rr.distance, rr.finish_time,
+                   u.name AS participant_name,
+                   e.title AS event_title
+            FROM running_results rr
+            JOIN registrations r ON r.id = rr.registration_id
+            JOIN users u ON u.id = r.user_id
+            JOIN events e ON e.id = r.event_id
+            WHERE rr.certificate_url IS NOT NULL
+            ORDER BY rr.verified_at DESC
+          `
+        : await sql`
       SELECT rr.id AS running_result_id, rr.certificate_url, rr.distance, rr.finish_time,
              e.title AS event_title
       FROM running_results rr
