@@ -112,7 +112,9 @@ export default function ParticipantDashboardPage() {
 
       <main className='max-w-7xl mx-auto px-6 pb-16'>
         <div className='mb-6'>
-          <h1 className='text-2xl font-bold'>Welcome, {user?.name || "…"}</h1>
+          <h1 className='text-2xl text-gray-900 font-bold'>
+            Welcome, {user?.name || "…"}
+          </h1>
           <p className='text-sm text-gray-500'>Participant</p>
         </div>
 
@@ -184,7 +186,7 @@ export default function ParticipantDashboardPage() {
                           <tr
                             key={reg.id}
                             className='border-b border-gray-100 last:border-0'>
-                            <td className='py-3 px-3 font-medium'>
+                            <td className='py-3 px-3 text-gray-700 font-medium'>
                               {reg.event_title}
                             </td>
                             <td className='py-3 px-3 text-gray-500'>
@@ -235,7 +237,7 @@ export default function ParticipantDashboardPage() {
                           {entry.rank ?? idx + 1}
                         </span>
                         <div>
-                          <p className='text-sm text-gray-500 font-medium'>
+                          <p className='text-sm text-gray-700 font-medium'>
                             {entry.user_name}
                           </p>
                           <p className='text-xs text-gray-500'>
@@ -321,7 +323,7 @@ export default function ParticipantDashboardPage() {
                     <div
                       key={event.id}
                       className='border border-gray-100 rounded-xl p-3'>
-                      <p className='font-medium text-sm text-gray-500'>
+                      <p className='font-medium text-sm text-gray-700'>
                         {event.title}
                       </p>
                       <p className='text-xs text-gray-500 mt-0.5'>
