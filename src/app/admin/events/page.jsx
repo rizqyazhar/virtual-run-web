@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { href: "/admin/events", label: "Event Management" },
   { href: "/admin/payments", label: "Payment Verification" },
   { href: "/admin/results", label: "Results Verification" },
+  { href: "/admin/certificates", label: "Certificates" },
 ];
 
 const EMPTY_FORM = {

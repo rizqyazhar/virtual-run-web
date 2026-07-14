@@ -18,6 +18,7 @@ const NAV_LINKS = [
   { href: "/admin/events", label: "Event Management" },
   { href: "/admin/payments", label: "Payment Verification" },
   { href: "/admin/results", label: "Results Verification" },
+  { href: "/admin/certificates", label: "Certificates" },
 ];
 
 // [BARU] Batas jumlah item yang ditampilkan tiap panel sebelum tombol "Lihat Selengkapnya" muncul
@@ -192,7 +193,7 @@ export default function AdminDashboardPage() {
                         <tr
                           key={event.id}
                           className='border-b border-gray-100 last:border-0'>
-                          <td className='py-3 px-3 font-medium'>
+                          <td className='py-3 px-3 text-gray-700 font-medium'>
                             {event.title}
                           </td>
                           <td className='py-3 px-3 text-gray-500'>
@@ -353,7 +354,7 @@ export default function AdminDashboardPage() {
                       <Award className='w-4.5 h-4.5' strokeWidth={1.75} />
                     </div>
                     <div className='min-w-0'>
-                      <p className='text-sm font-medium truncate'>
+                      <p className='text-sm text-gray-700 font-medium truncate'>
                         {cert.participant_name}
                       </p>
                       <p className='text-xs text-gray-500 truncate'>
